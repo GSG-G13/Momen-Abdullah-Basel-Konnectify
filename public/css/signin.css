@@ -1,0 +1,111 @@
+:root {
+    --primary-color: hsl(214, 100%, 59%);
+    --bg-color: #18191a;
+    --light-bg-color: #242526;
+    --text-color: #e4e6eb;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 500px;
+    padding: 50px;
+    background-color: #3b3b3b;
+    border-radius: 10px;
+    box-shadow: 0px 20px 40px --light-bg-color;
+}
+
+.login-logo img {
+    display: block;
+    margin: 0 auto 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.login-form h2 {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login-form form {
+    overflow: hidden;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4d4d4d;
+    font-size: 16px;
+    color: #fff;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: hsl(214, 90%, 44%);
+}
+
+.sign-up {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sign-up p {
+    font-size: 16px;
+}
+
+.sign-up a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+}
+
+.sign-up a:hover {
+    color: #d2d2d2;
+    text-decoration: underline;
+}
