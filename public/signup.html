@@ -3,31 +3,32 @@
 
 <head>
     <title>Sign Up Page</title>
-    <link rel="stylesheet" type="text/css" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/signup.css">
 </head>
 
 <body>
+    <h1>Sign Up</h1>
+    <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
 
-    <body>
-        <div class="container">
-            <h1>Sign Up</h1>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+        <label for="personal-image-url">Profile Image URL</label>
+        <input type="text" id="personal-image-url" name="personal-image-url" required>
 
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+        <label for="background-image-url">Background Image URL</label>
+        <input type="text" id="background-image-url" name="background-image-url" required>
 
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
-    </body>
+        <label for="skills">Skills <span>(separated by ,)</;></label>
+        <input type="text" id="skills" name="skills" required></input>
+
+        <button type="submit">Sign Up</button>
+    </form>
 </body>
 
 </html>
