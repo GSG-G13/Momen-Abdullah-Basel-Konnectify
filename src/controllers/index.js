@@ -1,4 +1,5 @@
 const express = require("express");
+const { join } = require("path");
 
 const router = express.Router();
 
@@ -10,6 +11,10 @@ const {
   handle404,
   handle500,
 } = require("./handlers");
+
+router.get("/home", (req, res) => {
+  res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
+});
 
 router.get("/posts", getAllPosts);
 
