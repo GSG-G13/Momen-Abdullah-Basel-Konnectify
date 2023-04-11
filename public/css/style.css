@@ -1,0 +1,411 @@
+/* Variables */
+:root {
+  --primary-color: hsl(214, 100%, 59%);
+  --bg-color: #18191a;
+  --light-bg-color: #242526;
+  --text-color: #e4e6eb;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #3a3b3c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Body */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+}
+
+/* Main Styles */
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+img {
+  border-radius: 8px;
+}
+
+/* Utilities */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.content-box {
+  background-color: var(--light-bg-color);
+  color: var(--text-color);
+  width: 700px;
+  padding: 15px;
+  border-radius: 15px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .content-box {
+    width: 100%;
+  }
+}
+
+.small-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+/* Pop Up To Add Post */
+.pup-up {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.pup-up.show {
+  display: flex;
+}
+.pup-up::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 75%);
+  z-index: 10;
+}
+.pup-up .form {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  background: var(--light-bg-color);
+  padding: 20px;
+  border-radius: 20px;
+  gap: 25px;
+  width: 500px;
+}
+.pup-up .close {
+  width: fit-content;
+  margin-left: auto;
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.pup-up input,
+.pup-up textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  resize: none;
+}
+.pup-up input:focus,
+.pup-up textarea:focus {
+  outline: none;
+}
+.pup-up textarea {
+  height: 175px;
+}
+::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+.pup-up button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* Header */
+header {
+  background-color: var(--light-bg-color);
+  color: var(--text-color);
+  padding: 15px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 30px;
+}
+
+header .logo a {
+  color: var(--primary-color);
+}
+
+header .menu {
+  display: flex;
+  gap: 15px;
+}
+
+header .menu .link {
+  cursor: pointer;
+}
+
+header .menu .link.active {
+  color: var(--primary-color);
+  position: relative;
+}
+
+header .menu .link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+/* Add Post */
+.add-post {
+  cursor: pointer;
+}
+
+.add-post .content-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block: 30px;
+}
+
+@media (max-width: 768px) {
+  .add-post .content-box {
+    flex-direction: column;
+  }
+}
+
+.add-post h2 {
+  cursor: pointer;
+}
+
+.add-post .add-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-post .add-icon i {
+  font-size: 29px;
+}
+
+/* Posts */
+.posts .post {
+  margin-bottom: 20px;
+}
+
+.posts .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.posts .info .user-name {
+  font-weight: bold;
+}
+
+.posts .info .post-time {
+  font-size: 14px;
+  color: #b0b3b8;
+}
+.posts .info .post-time i {
+  margin-left: 5px;
+}
+
+.posts .post-text {
+  padding: 10px 10px 0;
+}
+
+.posts .post-img {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Profile Info */
+.profile-info .bg-img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  background: var(--text-color);
+}
+
+.profile-info .info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: -50px;
+}
+
+.profile-info .info .user-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  border: 7px solid var(--bg-color);
+}
+
+.profile-info .info .user-name {
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 25px;
+}
+
+.profile-info .details {
+  color: var(--text-color);
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 17px;
+}
+
+.profile-info .user-skills {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.profile-info .user-skills .skill {
+  text-transform: capitalize;
+  font-weight: bold;
+  display: flex;
+  gap: 5px;
+}
+
+.profile-info .user-skills .skill i {
+  font-size: 25px;
+}
+
+.profile-info .user-skills .skill.html {
+  color: #e34f26;
+}
+
+.profile-info .user-skills .skill.css {
+  color: #2862e9;
+}
+
+.profile-info .user-skills .skill.js {
+  color: #f7df1e;
+}
+
+.profile-info .user-skills .skill.react {
+  color: #00d8ff;
+}
+
+.profile-info .user-skills .skill.github {
+  color: #6e5494;
+}
+
+.profile-info .user-skills .skill.sql {
+  color: #f29111;
+}
+
+.profile-info .user-skills .skill.php {
+  color: #4f5b93;
+}
+
+.profile-info .user-skills .skill.nodejs {
+  color: #6cc24a;
+}
+
+.posts .your-posts {
+  text-align: center;
+  margin-block: 30px;
+  font-weight: bold;
+}
+
+/* User Page Not Found */
+body#user-not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body#user-not-found section {
+  color: var(--text-color);
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+body#user-not-found section h2 {
+  font-size: 40px;
+}
+body#user-not-found section a {
+  background-color: var(--primary-color);
+  padding: 5px 15px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--light-bg-color);
+  color: var(--text-color);
+  text-align: center;
+  padding-block: 20px;
+}
+
+footer i {
+  color: var(--primary-color);
+}
