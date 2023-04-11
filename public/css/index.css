@@ -1,0 +1,58 @@
+:root {
+    --primary-color: hsl(214, 100%, 59%);
+    --bg-color: #18191a;
+    --light-bg-color: #242526;
+    --text-color: #e4e6eb;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    padding: 16px 24px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.button.sign-in {
+    background-color: #333;
+    margin-right: 20px;
+}
+
+.button.sign-up {
+    background-color: #006cc4;
+}
+
+.button:hover {
+    background-color: #555;
+}
