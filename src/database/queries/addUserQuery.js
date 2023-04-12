@@ -12,7 +12,7 @@ const addUserQuery = (
   skills
 ) => {
   return connection.query(
-    "INSERT INTO users (person_name, name, email, password, img_url,bg_img_url, skills, bio_content) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);",
+    "INSERT INTO users (person_name, name, email, password, img_url,bg_img_url, bio_content,skills) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);",
     [
       person_name,
       username,

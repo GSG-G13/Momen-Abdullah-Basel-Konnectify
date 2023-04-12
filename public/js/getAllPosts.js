@@ -15,7 +15,6 @@ const addASinglePost = (post) => {
   const currentDate = new Date();
   const timeDiff = currentDate - postDate;
 
-  //
   const timeDiffSeconds = Math.floor(timeDiff / 1000);
   let finalDate;
   if (timeDiffSeconds < 60) {
@@ -31,8 +30,6 @@ const addASinglePost = (post) => {
     finalDate = `${days} d`;
   }
 
-  //
-
   const postContainer = document.createElement("div");
   postContainer.classList.add("post", "content-box");
 
@@ -44,7 +41,7 @@ const addASinglePost = (post) => {
 
   const userImg = document.createElement("img");
   userImg.classList.add("small-img");
-  userImg.src = post.user_img_url;
+  userImg.src = `../uploads/${post.user_img_url}`;
   userImg.alt = "user-pitcher";
 
   const infoText = document.createElement("div");

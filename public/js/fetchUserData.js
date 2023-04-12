@@ -11,8 +11,9 @@ fetch(`/${userName}/data`)
   .catch((err) => console.log(err));
 
 const renderUserData = (data) => {
-  bgImg.src = data.bg_img_url;
-  userImg.src = data.img_url;
+  console.log(data);
+  bgImg.src = `../uploads/${data.bg_img_url}`;
+  userImg.src = `../uploads/${data.img_url}`;
   userNameElement.textContent = data.name;
   userBio.textContent = data.bio_content;
 

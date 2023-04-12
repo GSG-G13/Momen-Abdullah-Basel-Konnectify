@@ -14,6 +14,7 @@ postAddBtn.addEventListener("click", () => {
       .then((resopnse) => resopnse.json())
       .then((data) => {
         console.log("good");
+        console.log(data);
         // addASinglePost(data[0])
       })
       .catch((err) => console.log(err));
