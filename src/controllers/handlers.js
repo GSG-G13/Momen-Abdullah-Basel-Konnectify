@@ -1,5 +1,5 @@
 const { join } = require("path");
-
+const Joi = require('joi');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -16,7 +16,23 @@ const getSignUp = (req, res) => {
   res.sendFile(join(__dirname, "..", "..", "public", "signup.html"));
 };
 
+
+const addUserSchema = Joi.object({
+    person_name: Joi.string().required(),
+    username: Joi.string().required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+    profile_image: Joi.string().required(),
+    bg_img_url: Joi.string().required(),
+    bio: Joi.string().required(),
+    skills: Joi.string().required(),
+  });
+
+
 const postSignUp = (req, res) => {
+
+    
+
   const {
     person_name,
     username,
@@ -27,6 +43,15 @@ const postSignUp = (req, res) => {
     bio,
     skills,
   } = req.body;
+
+  const { error } = addUserSchema.validate(req.body);
+
+    if (error) {
+      console.error(error);
+      return res.status(400).send('Invalid data');
+    }
+
+
 
   getUser(email).then((data) => {
     if (data.rowCount > 0) {
@@ -136,31 +161,6 @@ const addPost = (req, res) => {
     .catch(() => res.status(500).send("server error"));
 };
 
-const signUpUser = (req, res) => {
-  const person_name = req.body.person_name;
-  const username = req.body.username;
-  const email = req.body.email; // fixed typo
-  const password = req.body.password;
-  const img_url = req.body.img_url || "";
-  const bg_img_url = req.body.bg_img_url;
-  const skills = req.body.skills;
-
-  try {
-    addUserQuery(
-      person_name,
-      username,
-      email,
-      password,
-      img_url,
-      bg_img_url,
-      skills
-    ); // added await
-    res.redirect("/signupuser");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error adding note to the database");
-  }
-};
 
 const handle404 = (req, res) => {
   res.status(404).send("404 error");
