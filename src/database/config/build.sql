@@ -33,10 +33,10 @@ CREATE TABLE comments (
 
 
 INSERT INTO users (person_name, email, password, name, img_url, bg_img_url, bio_content, skills) VALUES 
-    ('ahmed mo','ahmed-mo@jkdhs','ahmed-123','ahmed-mo', 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/3342739/pexels-photo-3342739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam ahmed! A front end developer', 'html,css,js,react'),
-    ('ahmed mo','ahmed-mo@akdhfjk','ahmed-123','mona-ar', 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/7014337/pexels-photo-7014337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam mona! A back end developer', 'nodejs,sql,github'),
-    ('ahmed mo','ahmed-mo@akjf','ahmed-123','khaled-sr', 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/887353/pexels-photo-887353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam kaheld! I know a lot of github!', 'github'),
-    ('ahmed mo','ahmed-mo@askdjk','ahmed-123','leen-je', 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1037999/pexels-photo-1037999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam leen! Welcome to my page', 'html,css,js,react,github,sql,php,nodejs');
+    ('ahmed mo','ahmed-mo@jkdhs','ahmed-1423','ahmed-mo', 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/3342739/pexels-photo-3342739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam ahmed! A front end developer', 'html,css,js,react'),
+    ('ahmed mo','ahmed-mo@akdhfjk','ahmed-1523','mona-ar', 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/7014337/pexels-photo-7014337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam mona! A back end developer', 'nodejs,sql,github'),
+    ('ahmed mo','ahmed-mo@akjf','ahmed-1623','khaled-sr', 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/887353/pexels-photo-887353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam kaheld! I know a lot of github!', 'github'),
+    ('ahmed mo','ahmed-mo@askdjk','ahmed-1723','leen-je', 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1037999/pexels-photo-1037999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Hello Iam leen! Welcome to my page', 'html,css,js,react,github,sql,php,nodejs');
 
 INSERT INTO posts (content, img_url, user_id) VALUES
     ('The Greatest!', 'https://occ-0-987-2219.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABbFI2wcwiGkHDdGWaw58hWgLETOBsbqqv6GbKnZFn3s_Y4fjw0Ys9DNYD5txnfV3oj9tgsBeaSnPcBOwQqQnpHVqHeQr9FtvVzaL.jpg?r=776', '1'),
@@ -48,5 +48,5 @@ INSERT INTO posts (content, img_url, user_id) VALUES
 INSERT INTO comments ( content, user_id, post_id) VALUES
                     ("You are awsome", 3, 2),
                     ("You are bad", 4, 2),
-                    ("You are good", 3, 1)
+                    ("You are good", 3, 1);
 COMMIT;
