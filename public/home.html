@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/9a8ddb3d78.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/9a8ddb3d78.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>home page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="pup-up">
-        <div class="form">
-            <i class="fa-solid fa-x close"></i>
-            <textarea placeholder="What do you think of?" required></textarea>
-            <input type="text" placeholder="image url" />
-            <button type="submit">add</button>
-        </div>
+      <div class="form">
+        <i class="fa-solid fa-x close"></i>
+        <textarea placeholder="What do you think of?" required></textarea>
+        <input type="text" placeholder="image url" />
+        <button type="submit">add</button>
+      </div>
     </div>
 
     <header>
-        <div class="container">
-            <h1 class="logo"><a href="/">FaceApp</a></h1>
-            <div class="menu">
-                <a class="link active" href="/">Home</a>
-                <a class="link" href="/profile">Profile</a>
-            </div>
+      <div class="container">
+        <h1 class="logo"><a href="/">FaceApp</a></h1>
+        <div class="menu">
+          <a class="link active" href="/home">Home</a>
+          <a class="link profile" href="/profile">Profile</a>
         </div>
+      </div>
     </header>
 
     <section class="add-post">
-        <div class="container">
-            <div class="content-box">
-                <img class="small-img" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="user-pitcher" />
-                <h2>Wanna add new post basel?</h2>
-                <div class="add-icon">
-                    <i class="fa-solid fa-plus"></i>
-                </div>
-            </div>
+      <div class="container">
+        <div class="content-box">
+          <img class="small-img" src="" alt="user-pitcher" />
+          <h2>Wanna add new post <span class="name"></span>?</h2>
+          <div class="add-icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="posts">
-        <div class="container"></div>
+      <div class="container"></div>
     </section>
 
     <footer>
-        <div class="container">
-            made with <i class="fa-sharp fa-solid fa-heart"></i>
-        </div>
+      <div class="container">
+        made with <i class="fa-sharp fa-solid fa-heart"></i>
+      </div>
     </footer>
 
+    <script src="/js/getLogedUserData.js"></script>
     <script src="/js/getAllPosts.js"></script>
     <script src="js/main.js"></script>
     <script src="/js/addPost.js"></script>
-</body>
-
+  </body>
 </html>
