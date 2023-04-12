@@ -28,7 +28,10 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
 }
-
+.error {
+    color: red;
+  }
+  
 input[type="text"],
 input[type="email"],
 input[type="password"],

@@ -5,12 +5,14 @@ const { join } = require("path");
 const router = express.Router();
 
 const {
-    getAllPosts,
-    getProfilePage,
-    getUserData,
-    addPost,
-    handle404,
-    handle500,
+  getAllPosts,
+  getProfilePage,
+  getUserData,
+  addPost,
+  handle404,
+  handle500,
+  signUpUser,
+  getsignUpUser,
 } = require("./handlers");
 
 router.get("/home", (req, res) => {
@@ -24,6 +26,11 @@ router.get("/user/:username", getProfilePage);
 router.get("/:username/data", getUserData);
 
 router.post("/add/post", addPost);
+
+router.get("/signupuser", getsignUpUser);
+
+
+router.post("/signupuser", signUpUser);
 
 router.use(handle404);
 
