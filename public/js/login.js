@@ -11,10 +11,15 @@ signinBtn.addEventListener("click", (e) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            email: emailInput.value,
+            username: emailInput.value,
             password: passwordInput.value,
         })
-    }).then((data) => {
-        console.log("data:   ", data.json());
+    }).then((response) => {
+        if (response.ok) {
+            // the user signed in successfully.
+            window.location.replace("/home");
+        } else {
+            console.log(response);
+        }
     })
 });

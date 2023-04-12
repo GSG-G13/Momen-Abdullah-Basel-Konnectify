@@ -15,13 +15,14 @@ const {
     getSignin,
     postSignUp,
     login,
+    isAuth
 } = require("./handlers");
 
-// router.use((req, res, next) => {
-//   console.log(req.url);
-//   console.log(req.method);
-//   next();
-// });
+router.use((req, res, next) => {
+    console.log(req.url);
+    console.log(req.method);
+    next();
+});
 
 router.get("/login", getSignin);
 
@@ -31,7 +32,7 @@ router.get("/signup", getSignUp);
 
 router.post("/signup", postSignUp);
 
-router.get("/home", (req, res) => {
+router.get("/home", isAuth, (req, res) => {
     res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
 });
 

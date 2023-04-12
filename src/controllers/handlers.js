@@ -65,44 +65,73 @@ const postSignUp = (req, res) => {
 
 const login = (req, res) => {
     //existing user check.
-    console.log(req.body);
-    const { username, email, password } = req.body;
+    // console.log(req.body);
+    const { username, password } = req.body;
     getUser(username).then((data) => {
         if (data.rows.length === 0) {
             return res.status(404).json({ msg: "User Not Found" });
         } else {
-            bcrypt.compare(password, data.rows[0].password).then((res) => {
-                if (!res) {
+            // console.log(data.rows[0]);
+            bcrypt.compare(password, data.rows[0].password).then((result) => {
+                if (!result) {
                     return res
                         .status(404)
                         .json({ message: "Invalid UserName Or Password" });
+                } else {
+                    jwt.sign({ username: username },
+                        process.env.PRIVATE_KEY,
+                        function(err, token) {
+                            if (err) {
+                                console.log("err", err);
+                            } else {
+                                // compare it with the token which in the Cookies.
+                                jwt.verify(token, process.env.PRIVATE_KEY, function(err, decoded) {
+                                    if (err) {
+                                        res.clearCookie("jwt");
+                                        res.status(401).json({
+                                            error: "UnAuthorized",
+                                        });
+                                    } else {
+                                        res.cookie('jwt', token);
+                                        res.status(200);
+                                        res.json({ msg: "Authorized" });
+                                    }
+                                });
+                            }
+                        }
+                    );
                 }
+            });
+            // console.log("user or pass invalid");
+            res.status(401).json({
+                message: "UnAuthorized",
             });
         }
     });
-
-    jwt.sign({ username: username },
-        process.env.PRIVATE_KEY,
-        function(err, token) {
-            if (err) {
-                console.log("err", err);
-            } else {
-                // compare it with the token which in the Cookies.
-                jwt.verify(token, process.env.PRIVATE_KEY, function(err, decoded) {
-                    if (err) {
-                        res.clearCookie("jwt");
-                        res.status(401).json({
-                            error: "UnAuthorized",
-                        });
-                    } else {
-                        res.cookie('jwt', token);
-                        res.json({ msg: "Authorized", data: decoded });
-                    }
-                });
-            }
-        }
-    );
 };
+
+const isAuth = (req, res, next) => {
+    console.log("--------");
+    if (req.cookies.jwt) {
+        jwt.verify(req.cookies.jwt, process.env.PRIVATE_KEY, function(err, decoded) {
+            if (err) {
+                res.clearCookie('jwt');
+                res.status(401).json({
+                    error: "UnAuthorized"
+                });
+            } else {
+                console.log("ok");
+                next();
+            }
+        });
+    } else {
+        res.status(401).json({
+            msg: "UnAuthenticated"
+        })
+
+    }
+
+}
 
 const getAllPosts = (req, res) => {
     getAllPostsQuery()
@@ -187,4 +216,5 @@ module.exports = {
     getSignin,
     login,
     postSignUp,
+    isAuth,
 };
