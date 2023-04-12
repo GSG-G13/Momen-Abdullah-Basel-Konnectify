@@ -5,28 +5,35 @@ const { join } = require("path");
 const router = express.Router();
 
 const {
-  getAllPosts,
-  getProfilePage,
-  getUserData,
-  addPost,
-  handle404,
-  handle500,
-  getSignUp,
-  postSignUp,
+    getAllPosts,
+    getProfilePage,
+    getUserData,
+    addPost,
+    handle404,
+    handle500,
+    getSignUp,
+    getSignin,
+    postSignUp,
+    login,
+    isAuth
 } = require("./handlers");
 
-// router.use((req, res, next) => {
-//   console.log(req.url);
-//   console.log(req.method);
-//   next();
-// });
+router.use((req, res, next) => {
+    console.log(req.url);
+    console.log(req.method);
+    next();
+});
+
+router.get("/login", getSignin);
+
+router.post("/login", login);
 
 router.get("/signup", getSignUp);
 
 router.post("/signup", postSignUp);
 
-router.get("/home", (req, res) => {
-  res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
+router.get("/home", isAuth, (req, res) => {
+    res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
 });
 
 router.get("/posts", getAllPosts);
