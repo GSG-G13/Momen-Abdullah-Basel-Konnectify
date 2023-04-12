@@ -2,23 +2,23 @@ const signUpButton = document.getElementById("signup-button");
 
 signUpButton.addEventListener("click", (event) => {
   event.preventDefault();
-  
+
   const person_name = document.getElementById("person_name").value;
-  
+
   const username = document.getElementById("username").value;
-  console.log(username);
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const profile_image = document.getElementById("profile_image").value;
   const bg_img_url = document.getElementById("bg_img_url").value;
-  const img_url = document.getElementById("img_url").value;
+  const bio = document.getElementById("bio").value;
   const skills = document.getElementById("skills").value;
 
   let isValid = true;
 
   // Validation
   const nameError = document.getElementById("person_name_error");
-  if (person_name.trim() === '') {
+  if (person_name.trim() === "") {
     nameError.innerHTML = "Please enter your name";
     isValid = false;
   } else {
@@ -26,7 +26,7 @@ signUpButton.addEventListener("click", (event) => {
   }
 
   const usernameError = document.getElementById("username_error");
-  if (username.trim() === '') {
+  if (username.trim() === "") {
     usernameError.innerHTML = "Please enter a username";
     isValid = false;
   } else {
@@ -42,7 +42,7 @@ signUpButton.addEventListener("click", (event) => {
   }
 
   const passwordError = document.getElementById("password_error");
-  if (password.trim() === '') {
+  if (password.trim() === "") {
     passwordError.innerHTML = "Please enter a password";
     isValid = false;
   } else {
@@ -50,7 +50,7 @@ signUpButton.addEventListener("click", (event) => {
   }
 
   const profileImageError = document.getElementById("profile_image_error");
-  if (profile_image.trim() === '') {
+  if (profile_image.trim() === "") {
     profileImageError.innerHTML = "Please enter a profile image URL";
     isValid = false;
   } else {
@@ -58,23 +58,15 @@ signUpButton.addEventListener("click", (event) => {
   }
 
   const bgImgError = document.getElementById("bg_img_url_error");
-  if (bg_img_url.trim() === '') {
+  if (bg_img_url.trim() === "") {
     bgImgError.innerHTML = "Please enter a background image URL";
     isValid = false;
   } else {
     bgImgError.innerHTML = "";
   }
 
-  const imgUrlError = document.getElementById("img_url_error");
-  if (img_url.trim() === '') {
-    imgUrlError.innerHTML = "Please enter an image URL";
-    isValid = false;
-  } else {
-    imgUrlError.innerHTML = "";
-  }
-
   const skillsError = document.getElementById("skills_error");
-  if (skills.trim() === '') {
+  if (skills.trim() === "") {
     skillsError.innerHTML = "Please enter your skills";
     isValid = false;
   } else {
@@ -90,11 +82,11 @@ signUpButton.addEventListener("click", (event) => {
       password,
       profile_image,
       bg_img_url,
-      img_url,
+      bio,
       skills,
     };
 
-    fetch("/signupuser", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -103,6 +95,7 @@ signUpButton.addEventListener("click", (event) => {
     })
       .then((response) => {
         if (response.ok) {
+          window.location.replace("/login");
           console.log("User signed up successfully");
           // Do something here after the user signs up successfully
         } else {

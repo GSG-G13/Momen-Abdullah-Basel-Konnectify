@@ -11,12 +11,22 @@ const {
   addPost,
   handle404,
   handle500,
-  signUpUser,
-  getsignUpUser,
+  getSignUp,
+  postSignUp,
 } = require("./handlers");
 
+// router.use((req, res, next) => {
+//   console.log(req.url);
+//   console.log(req.method);
+//   next();
+// });
+
+router.get("/signup", getSignUp);
+
+router.post("/signup", postSignUp);
+
 router.get("/home", (req, res) => {
-    res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
+  res.sendFile(join(__dirname, "..", "..", "public", "home.html"));
 });
 
 router.get("/posts", getAllPosts);
@@ -26,11 +36,6 @@ router.get("/user/:username", getProfilePage);
 router.get("/:username/data", getUserData);
 
 router.post("/add/post", addPost);
-
-router.get("/signupuser", getsignUpUser);
-
-
-router.post("/signupuser", signUpUser);
 
 router.use(handle404);
 
